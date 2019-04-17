@@ -32,10 +32,13 @@ function addRouter(method, url, callback){
  * @param { String } url
  */
 function findRouter(method, url){
+    console.log(router);
+    console.log('method ----- url---', method, url);
     // 为了方便处理，将method和url统一转换成小写
     method = method.toLowerCase();
     url = url.toLowerCase();
 
+    // console.log('router[method]----', router[method]);
     // 找到路由的回调函数，不存在则默认返回null
     const callback = router[method][url] || null;
 

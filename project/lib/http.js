@@ -43,7 +43,7 @@ const server = http.createServer((req, res) =>{
             req.on('end', ()=>{
                 const data = Buffer.concat(arr);  //合并接收到的数据
                 const post = querystring.parse(data.toString());  //将接收到的数据转为json
-
+                console.log('data---post----', post);
                 // 通过路由处理数据，因为此时是普通post请求，不存在文件数据
                 processData(method, pathname, query, post, {});
             });
@@ -84,9 +84,19 @@ const server = http.createServer((req, res) =>{
         // 通过路由处理数据，因为此时是GET请求，只有query数据
         processData(method, pathname, query, {}, {})
     }
-
+    /**
+     *
+     *处理请求数据
+    * @param { String } method
+    * @param { String } pathname
+    * @param {*} query
+    * @param { Object } post
+    * @param { File } files
+    */
     async function processData(method, pathname, query, post, files){
+        console.log('method, pathname, query, post, files---', method, pathname, query, post, files);
         const callback = findRouter(method, pathname); //获取处理请求的回调函数
+        // console.log('callback----', callback);
 
         // 若回调函数存在，则表示路由配置相应的数据处理，即该请求不是获取静态文件
         if(callback){
