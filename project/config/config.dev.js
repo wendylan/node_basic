@@ -9,7 +9,7 @@ module.exports = {
     DB_NAME: 'test',
 
     // HTTP端口
-    HTTP_PORT: 8080,
+    HTTP_PORT: 8888,
     // 静态文件绝对路径
     HTTP_ROOT: path.resolve(__dirname, '../static/'),
     HTTP_UPLOAD: path.resolve(__dirname, '../static/upload')

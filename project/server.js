@@ -1,4 +1,5 @@
 const connection = require('./lib/database');
+const http = require('./lib/http');
 
 ;(async ()=>{
     // 查询item_table表中的数据
